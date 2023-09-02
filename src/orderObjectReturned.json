@@ -1,0 +1,74 @@
+{
+    "id": "5E546487R6093325N",
+    "intent": "CAPTURE",
+    "status": "COMPLETED",
+    "purchase_units": [
+        {
+            "reference_id": "default",
+            "amount": {
+                "currency_code": "USD",
+                "value": "777.77"
+            },
+            "payee": {
+                "email_address": "sb-ceaoo26085538@business.example.com",
+                "merchant_id": "AEVN786JG34KW"
+            },
+            "description": "Leg lamp from that one movie",
+            "soft_descriptor": "PAYPAL *TEST STORE",
+            "shipping": {
+                "name": {
+                    "full_name": "John Doe"
+                },
+                "address": {
+                    "address_line_1": "Free Trade Zone",
+                    "admin_area_2": "Nairobi",
+                    "admin_area_1": "CA",
+                    "postal_code": "00521",
+                    "country_code": "KE"
+                }
+            },
+            "payments": {
+                "captures": [
+                    {
+                        "id": "0NV84816J7900894F",
+                        "status": "COMPLETED",
+                        "amount": {
+                            "currency_code": "USD",
+                            "value": "777.77"
+                        },
+                        "final_capture": true,
+                        "seller_protection": {
+                            "status": "ELIGIBLE",
+                            "dispute_categories": [
+                                "ITEM_NOT_RECEIVED",
+                                "UNAUTHORIZED_TRANSACTION"
+                            ]
+                        },
+                        "create_time": "2023-09-02T10:36:55Z",
+                        "update_time": "2023-09-02T10:36:55Z"
+                    }
+                ]
+            }
+        }
+    ],
+    "payer": {
+        "name": {
+            "given_name": "John",
+            "surname": "Doe"
+        },
+        "email_address": "sb-qcrrc26086329@personal.example.com",
+        "payer_id": "9GBZFBY844YXY",
+        "address": {
+            "country_code": "KE"
+        }
+    },
+    "create_time": "2023-09-02T10:35:07Z",
+    "update_time": "2023-09-02T10:36:55Z",
+    "links": [
+        {
+            "href": "https://api.sandbox.paypal.com/v2/checkout/orders/5E546487R6093325N",
+            "rel": "self",
+            "method": "GET"
+        }
+    ]
+}
