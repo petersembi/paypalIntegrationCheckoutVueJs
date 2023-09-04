@@ -13,6 +13,11 @@
         <div ref="paypal"></div>
     </div>
 </template>
+<style>
+/* .paypal-button-label-container {
+    background-color: blue;
+} */
+</style>
 <script>
 export default {
     name: "HelloWorld",
@@ -26,6 +31,8 @@ export default {
                 description: "Leg lamp from that one movie",
                 img: './assets/lamp.jpg'
             },
+            paymentInfo: {},
+           
         };
     },
     mounted: function () {
@@ -56,7 +63,23 @@ export default {
                 onApprove: async (data, actions) => {
                     const order = await actions.order.capture();
                     this.paidFor = true;
-                    console.log(order);
+                    console.log(order);   
+
+                    // send http request to store payment details
+                    // route: /client_payments/{id}                 
+                    
+                    this.paymentInfo = {
+                        client_user_id: 5,
+                        job_id: 9,
+                        transaction_id: order['id'],
+                        amount: order['purchase_units'][0]['payments']['captures'][0]['amount']['value'],
+                        currency: order['purchase_units'][0]['payments']['captures'][0]['amount']['currency_code'],
+                        payment_status: order['status'],
+                        payer_paypal_email: order['payer']['email_address'],
+                        payer_id: order['payer']['payer_id']
+                    }
+
+                    console.log('payment info: ', this.paymentInfo);                
                 },
                 onError: err => {
                     console.log(err);
